@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 class Panel( object ):
-	def __init__( self, name, data=None ):
+	def __init__( self, tag="div", name, data=None ):
 		self.name = name
 		self.data = None
 		self.panels = list()
@@ -23,11 +23,11 @@ class Panel( object ):
 			self.data = f.readlines()[0]		
 	
 	def render( self ):
-		output = "<div id='%s'>\n" % self.name
+		output = "<%s id='%s'>\n" % ( self.tag, self.name )
 		if self.is_terminal():
-			output += "%s\n</div>\n" % self.data
+			output += "%s\n</%s>\n" % ( self.data, self.tag )
 		else:
 			for p in self.panels:
 				output += p.render()
-			output += "</div>\n"
+			output += "</%s>\n" % self.tag
 		return output
