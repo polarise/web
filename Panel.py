@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 class Panel( object ):
-	def __init__( self, tag="div", name, data=None ):
+	def __init__( self, name, tag="div",data=None ):
 		self.name = name
 		self.data = None
 		self.panels = list()
