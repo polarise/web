@@ -4,7 +4,7 @@ class Panel( object ):
 	def __init__( self, name, tag="div",data=None ):
 		self.name = name
 		self.tag = tag
-		self.data = None
+		self.data = data
 		self.panels = list()
 	
 	def is_terminal( self ):
